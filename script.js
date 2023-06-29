@@ -2,7 +2,7 @@
 var startScreen = document.querySelector(".startscreen");
 var quiz = document.querySelector(".Quiz");
 var button = document.querySelector(".button");
-let time = document.querySelector("#time");
+let timerEl = document.querySelector(".timer");
 var quizTitle = document.querySelector(".quiz-title");
 var quizChoices = document.querySelector(".quiz-choices");
 var questions = [
@@ -33,7 +33,8 @@ var questions = [
   },
 ];
 
-let timer = 0;
+let time = questions.length * 10;
+let timerId;
 var questionIndex = 0;
 
 //this function should have my questions appear after  pressing the start button and create buttons with the answers for the question//
@@ -55,16 +56,26 @@ function showQuestions() {
   }
   if (buttonEl == questions[0].answer)
     return (h2.textContent = questions[1].questionTitle);
-  setInterval(countDown, 1000);
 }
 function checkAnswer(event) {
   if (questions[questionIndex].answer == event.target.textContent) {
   }
   questionIndex++;
+  if (questions < questions.length) {
+    showQuestions();
+  }
   console.log(event.target);
   if (questionIndex < questions.length) {
     showQuestions();
   }
+}
+
+function clockTicker() {
+  time--;
+  timerEl.textContent = time;
+  // if(time === 0) {
+
+  // }
 }
 
 //Attempt at adding a timer//
@@ -82,6 +93,8 @@ let countDown = () => {
 function startquiz() {
   quiz.classList.remove("hide");
   startScreen.classList.add("hide");
+  timerEl.textContent = time;
+  timerId = setInterval(clockTicker, 1000);
   showQuestions();
 }
 

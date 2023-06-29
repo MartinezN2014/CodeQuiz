@@ -21,43 +21,20 @@ body.wrong {
     background-color: red;
 }
 
-.container {
-    width: 800px;
-    max-width: 80%;
-    background-color: white;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-.btn-layout {
-    display: grid;
-    margin: 20px 0;
-}
-
-.btn {
-    border-radius: 5px;
-    padding: 10px;
-}
-
-.btn.correct {
-    background-color: green;
-}
-
-.btn.wrong {
-    background-color: red;
-}
-
-.start-btn, .next-btn {
-    font-size: 2rem;
-    font-weight: bold;
-    padding: 10px 20px;
-}
-
-.btn-controls {
+.head div {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 10px ;
+    padding-top: 5%;
+    justify-content: space-between;
+
 }
+
+.head p {
+    margin-right: 10%;
+}
+
 
 .hide {
     display: none;
